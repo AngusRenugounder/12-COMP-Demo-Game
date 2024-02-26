@@ -14,18 +14,21 @@ const PLAYER_WIDTH = 25;
 function setup() {
   console.log("setup: ");
   cnv = new Canvas(SCREEN_WIDTH, SCREEN_HEIGHT);
-world.gravity.y = 10;  
+world.gravity.y = 80;  
 rectangle = new Sprite(PLAYER_WIDTH, SCREEN_HEIGHT/2, PLAYER_WIDTH, PLAYER_HEIGHT, 'd'); 
 rectangle.color = 'cyan';
 wallBot  = new Sprite(0, SCREEN_HEIGHT, SCREEN_WIDTH*2, 10, 'k');
 wallBot.color = color("blue");
 
 document.addEventListener("keydown", function(event) {
- if (event.code === 'ArrowUp') {
-rectangle.vel.y = -5;
+
+ if (event.code === 'ArrowUp' & rectangle.y > 175) {
+rectangle.vel.y = -20;
  }
 else if (event.code === 'ArrowDown')
 rectangle.vel.y = 10;
+ console.log("key pressed: ");
+
 });
 
 document.addEventListener("keyup", function(event) {
